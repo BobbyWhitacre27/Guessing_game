@@ -12,18 +12,18 @@
     <h1 id = "title">The Guessing Game</h1>
     <h2 id = "subtitle">Guess a number between 1-100</h2>
     <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <p id="g1">Guess #1:</p>
+      <p id="g2">Guess #2:</p>
+      <p id="g3">Guess #3:</p>
+      <p id="g4">Guess #4:</p>
+      <p id="g5">Guess #5:</p>
   </ul>
-  <p>Warmer!</p>
-  <input type="text" id="Guess">
-  <button type="button">Submit Guess</button>
-  <button type="button">Play Again</button>
-  <button type="button">Hint</button>
-
+  <p id="outputMessage">Guess lower, Guess higher, YOU WIN!!, the random number is __</p>
+  <input type="text" placeholder="Enter your guess here" id="inputValue">
+  <button type="button" id="guessButton">Submit Guess</button>
+  <button type="button" id="playAgainButton">Play Again</button>
+  <button type="button" id="hintButton">Hint</button>
+  <p id="randomNumber"></p>
 
 
     <script src='js/guessing-game.js'></script>
