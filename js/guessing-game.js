@@ -21,18 +21,6 @@ a user clicks a button or adds a guess to the input field.
 */
 
 
-function guessingGame(inputValue) {
-    let randomValue = Math.floor(Math.random() * (100 - 1 + 1) + 1)
-    //console.log(randomValue)
-    if (inputValue === randomValue){
-        return `YOU WIN!!, the random number is ${randomValue}` 
-    }else if (inputValue > randomValue){
-        return "Guess lower"
-    }else if (inputValue < randomValue){
-        return "Guess higher"
-    }
-}
-
 var submitGuessButton = document.getElementById("guessButton")
 var inputValue = document.getElementById("inputValue").value
 var outputMessage = document.getElementById("outputMessage")
@@ -47,29 +35,64 @@ var g4 = document.getElementById("g4")
 var g5 = document.getElementById("g5")
 
 
-function changeg1(){
-    var inputValue = document.getElementById("inputValue").value;
-    g1.textContent = `Guess #1: ${inputValue}`;
-}
 
-submitGuessButton.addEventListener("click",function changeg1(){
-    var inputValue = document.getElementById("inputValue").value;
-    g1.textContent = `Guess #1: ${inputValue}`;
-})
+let randomValue = Math.floor(Math.random() * (100 - 1 + 1) + 1)
 
-submitGuessButton.addEventListener("click",function guessingGame() {
+function guessingGame(){
     var inputValue = document.getElementById("inputValue").value
-    let randomValue = Math.floor(Math.random() * (100 - 1 + 1) + 1)
     randomNumber.textContent = `(Random Number is ${randomValue})`
-    //console.log(randomValue)
-    if (inputValue === randomValue){
-        return outputMessage.textContent = `YOU WIN!!, the random number is ${randomValue}` 
-    }else if (inputValue > randomValue){
-        return outputMessage.textContent = "Guess lower"
-    }else if (inputValue < randomValue){
-        return outputMessage.textContent = "Guess higher"
+
+    let guessesArray = []
+    let guessesPlacementOnWebsite = [g1, g2, g3, g4, g5]
+
+    for(let i=0; i<5; i++){
+    guessesArray.push(inputValue)
+    guessesPlacementOnWebsite[i].textContent = `${guessesArray[i]}`;
+
+ 
+
+    if (guessesArray[i] == randomValue){
+        outputMessage.textContent = `YOU WIN!!, the random number is ${randomValue}` 
+    }else if (guessesArray[i] > randomValue){
+        outputMessage.textContent = "Guess lower"
+    }else if (guessesArray[i] < randomValue){
+        outputMessage.textContent = "Guess higher"
     }
-})
+    
+    }
+
+}
+    
+
+
+// function guessingGame() {
+ 
+   
+//     var inputValue = document.getElementById("inputValue").value
+//     randomNumber.textContent = `(Random Number is ${randomValue})` 
+
+//     if (inputValue === randomValue){
+//         return outputMessage.textContent = `YOU WIN!!, the random number is ${randomValue}` 
+//     }else if (inputValue > randomValue){
+//         return outputMessage.textContent = "Guess lower"
+//     }else if (inputValue < randomValue){
+//         return outputMessage.textContent = "Guess higher"
+//     }
+// }
+
+
+
+// function guessLoggedOnScreen(){
+   
+//     g1.textContent = `${guessesArray[0]}`;
+// }
+
+// submitGuessButton.addEventListener("click", guessingGame)
+
+submitGuessButton.addEventListener("click", guessingGame)
+
+
+
 
 
 // 4. after 5 guesses then the correct answer appears and the game is over
