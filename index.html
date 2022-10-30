@@ -11,17 +11,18 @@
   <body>
     <h1 id = "title">The Guessing Game</h1>
     <h2 id = "subtitle">Guess a number between 1-100</h2>
-    <ul>
-      <div>Guess #1:</div><div id="g1"> </div>
-      <br>
-      <div>Guess #2:</div><div id="g2"> </div>
-      <br>
-      <div>Guess #3:</div><div id="g3"> </div>
-      <br>
-      <div>Guess #4:</div><div id="g4"> </div>
-      <br>
-      <div>Guess #5:</div><div id="g5"> </div>
-  </ul>
+    
+    <table>
+      <tbody>
+          <tr><td>Guess #1:</td><td id="g1"> </td></tr>
+          <tr><td>Guess #2:</td><td id="g2"> </td></tr>
+          <tr><td>Guess #3:</td><td id="g3"> </td></tr>
+          <tr><td>Guess #4:</td><td id="g4"> </td></tr>
+          <tr><td>Guess #5:</td><td id="g5"> </td></tr>
+      </tbody>
+  </table>
+
+  
   <p id="outputMessage">Take a guess!</p>
   <input type="text" placeholder="Enter your guess here" id="inputValue">
   <button type="button" id="guessButton">Submit Guess</button>

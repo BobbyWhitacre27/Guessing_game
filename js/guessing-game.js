@@ -35,63 +35,68 @@ var g4 = document.getElementById("g4")
 var g5 = document.getElementById("g5")
 
 
-
 let randomValue = Math.floor(Math.random() * (100 - 1 + 1) + 1)
 
+
 function guessingGame(){
+
     var inputValue = document.getElementById("inputValue").value
     randomNumber.textContent = `(Random Number is ${randomValue})`
 
     let guessesArray = []
-    let guessesPlacementOnWebsite = [g1, g2, g3, g4, g5]
 
     for(let i=0; i<5; i++){
-    guessesArray.push(inputValue)
-    guessesPlacementOnWebsite[i].textContent = `${guessesArray[i]}`;
 
- 
-
-    if (guessesArray[i] == randomValue){
-        outputMessage.textContent = `YOU WIN!!, the random number is ${randomValue}` 
-    }else if (guessesArray[i] > randomValue){
+    if (inputValue == randomValue){
+        return outputMessage.textContent = `YOU WIN!!, the random number is ${randomValue}` 
+    }else if (i == 4){
+        guessesArray.push(inputValue)
+        g5.textContent = `${guessesArray[i]}`;
+        outputMessage.textContent = `SORRY, YOU LOSE. The random number is ${randomValue}`
+    }else if (inputValue > randomValue){
         outputMessage.textContent = "Guess lower"
-    }else if (guessesArray[i] < randomValue){
+    }else if (inputValue < randomValue){
         outputMessage.textContent = "Guess higher"
     }
-    
+ 
+    guessesArray.push(inputValue)
+    if(i==0){
+        g1.textContent = `${guessesArray[i]}`;
+    }else if(i==1){
+        g2.textContent = `${guessesArray[i]}`;
+    }else if(i==2){
+        g3.textContent = `${guessesArray[i]}`;
+    }else if(i==3){
+        g4.textContent = `${guessesArray[i]}`;
+    }
+
+    return i=+1
+
+    // I need something to stop the loop and restart the loop with the next new value... this is where I am stuck
+
     }
 
 }
-    
 
+function hint(){
+    if(randomValue > 50){
+        alert("The number is greater than 50")
+    }
+    else if(randomValue < 51){
+        alert("The number is less than 51")
+    }
+}
 
-// function guessingGame() {
- 
-   
-//     var inputValue = document.getElementById("inputValue").value
-//     randomNumber.textContent = `(Random Number is ${randomValue})` 
+function playAgain(){
 
-//     if (inputValue === randomValue){
-//         return outputMessage.textContent = `YOU WIN!!, the random number is ${randomValue}` 
-//     }else if (inputValue > randomValue){
-//         return outputMessage.textContent = "Guess lower"
-//     }else if (inputValue < randomValue){
-//         return outputMessage.textContent = "Guess higher"
-//     }
-// }
+}
 
-
-
-// function guessLoggedOnScreen(){
-   
-//     g1.textContent = `${guessesArray[0]}`;
-// }
-
-// submitGuessButton.addEventListener("click", guessingGame)
 
 submitGuessButton.addEventListener("click", guessingGame)
 
+hintButton.addEventListener("click", hint)
 
+playAgainButton.addEventListener("click", playAgain)
 
 
 
